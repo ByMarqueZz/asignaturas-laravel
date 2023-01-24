@@ -11,8 +11,7 @@ class Asignatura extends Model
 
     protected $table = "asignaturas";
 
-    protected $fillable = ['user_id', 'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
-    protected $hidden = ['codAs'];
+    protected $fillable = ['codAs', 'user_id', 'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
 
     public function obtenerAsignaturas()
     {

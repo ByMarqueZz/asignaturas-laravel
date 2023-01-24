@@ -55,7 +55,7 @@ class AsignaturaController extends Controller
     public function show($codAs)
     {
         $asignatura = $this->asignaturas->obtenerAsignaturaPorCod($codAs);
-        return view('asignaturas.ver', ['asignatura' => $asignatura]);
+        return view('asignatura.ver', ['asignatura' => $asignatura]);
     }
 
     /**
@@ -67,7 +67,7 @@ class AsignaturaController extends Controller
     public function edit($codAs)
     {
         $asignatura = $this->asignaturas->obtenerAsignaturaPorCod($codAs);
-        return view('asignaturas.editar', ['asignatura' => $asignatura]);
+        return view('asignatura.editar', ['asignatura' => $asignatura]);
     }
 
     /**

@@ -52,7 +52,7 @@
         <input type="text" name="profesorAs" placeholder="Profesor asignatura">
         <label>Color asignatura:</label>
         <input type="text" name="colorAs" placeholder="Color asignatura">
-        <input type="hidden" name="id_usuario" value="">
+        <input type="hidden" name="user_id" value="1">
         <input type="submit" value="Guardar">
     </form>
 </body>
