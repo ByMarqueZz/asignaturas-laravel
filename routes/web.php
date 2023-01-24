@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AsignaturaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/asignatura', [AsignaturaController::class, 'index'])->middleware(['auth', 'verified'])->name('asignatura');
+Route::get('/asignatura/crear', [AsignaturaController::class, 'create'])->middleware(['auth', 'verified']);
+Route::post('/asignatura/crear',  [AsignaturaController::class, 'store'])->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
