@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\HorasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,11 @@ Route::get('/asignatura/ver/{codAs}', [AsignaturaController::class, 'show'])->mi
 Route::get('/asignatura/editar/{codAs}', [AsignaturaController::class, 'edit'])->middleware(['auth', 'verified']);
 Route::put('/asignatura/editar/{codAs}',  [AsignaturaController::class, 'update'])->middleware(['auth', 'verified']);
 Route::get('/asignatura/eliminar/{codAs}', [AsignaturaController::class, 'destroy'])->middleware(['auth', 'verified']);
+
+Route::get('/horas', [HorasController::class, 'index'])->middleware(['auth', 'verified'])->name('horas');
+Route::get('/horas/crear', [HorasController::class, 'create'])->middleware(['auth', 'verified']);
+Route::post('/horas/crear',  [HorasController::class, 'store'])->middleware(['auth', 'verified']);
+Route::get('/horas/eliminar/{diaH}&{horaH}', [HorasController::class, 'destroy'])->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
