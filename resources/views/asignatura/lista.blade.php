@@ -4,7 +4,19 @@
             {{ __('Asignaturas') }}
         </h2>
     </x-slot>
+    <style>
+        #tableAsignaturas{
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
 
+        #tableAsignaturas td, #tableAsignaturas th{
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
