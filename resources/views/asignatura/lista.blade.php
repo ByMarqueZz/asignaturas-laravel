@@ -36,9 +36,9 @@
                                 <td>{{ $asignaturas->profesorAs }}</td>
                                 <td>{{ $asignaturas->colorAs }}</td>
                                 <td>
-                                    <a href="/asignatura/ver/{{$asignaturas->codAs}}">Ver</a>
-                                    <a href="/asignatura/editar/{{$asignaturas->codAs}}">Editar</a>
-                                    <a href="/asignatura/eliminar/{{$asignaturas->codAs}}">Eliminar</a>
+                                    <a href="/asignatura/ver/{{$asignaturas->codAS}}">Ver</a>
+                                    <a href="/asignatura/editar/{{$asignaturas->codAS}}">Editar</a>
+                                    <a href="/asignatura/eliminar/{{$asignaturas->codAS}}" onclick="return eliminarAsignatura('Eliminar Asignatura')"> Eliminar</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -46,6 +46,11 @@
                     <br><br>
                 <a href="/asignatura/crear">Nueva asignatura</a>
                 </div>
+                <script>
+                    function eliminarAsignatura(value) {
+                        action = confirm(value) ? true : event.preventDefault()
+                    }
+                </script>
             </div>
         </div>
     </div>

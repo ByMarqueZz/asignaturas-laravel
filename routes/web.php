@@ -22,8 +22,10 @@ Route::get('/', function () {
 Route::get('/asignatura', [AsignaturaController::class, 'index'])->middleware(['auth', 'verified'])->name('asignatura');
 Route::get('/asignatura/crear', [AsignaturaController::class, 'create'])->middleware(['auth', 'verified']);
 Route::post('/asignatura/crear',  [AsignaturaController::class, 'store'])->middleware(['auth', 'verified']);
-Route::get('/asignatura/ver', [AsignaturaController::class, 'show'])->middleware(['auth', 'verified']);
+Route::get('/asignatura/ver/{codAs}', [AsignaturaController::class, 'show'])->middleware(['auth', 'verified']);
 Route::get('/asignatura/editar/{codAs}', [AsignaturaController::class, 'edit'])->middleware(['auth', 'verified']);
+Route::put('/asignatura/editar/{codAs}',  [AsignaturaController::class, 'update'])->middleware(['auth', 'verified']);
+Route::get('/asignatura/eliminar/{codAs}', [AsignaturaController::class, 'destroy'])->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

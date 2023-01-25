@@ -13,6 +13,8 @@ class Asignatura extends Model
 
     protected $fillable = ['codAs', 'user_id', 'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
 
+    protected $primaryKey = 'codAS';
+    protected $keyType = 'string';
     public function obtenerAsignaturas()
     {
         return Asignatura::all();

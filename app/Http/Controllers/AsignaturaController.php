@@ -52,9 +52,8 @@ class AsignaturaController extends Controller
      * @param  int  $codAs
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($codAs)
     {
-        $codAs = 1;
         $asignatura = $this->asignatura->obtenerAsignaturaPorCod($codAs);
         return view('asignatura.ver', ['asignatura' => $asignatura]);
     }
@@ -67,8 +66,8 @@ class AsignaturaController extends Controller
      */
     public function edit($codAs)
     {
-        $asignatura2 = $this->asignatura->obtenerAsignaturaPorCod($codAs);
-        return view('asignatura.editar', ['asignatura' => $asignatura2]);
+        $asignatura = $this->asignatura->obtenerAsignaturaPorCod($codAs);
+        return view('asignatura.editar', ['asignatura' => $asignatura]);
     }
 
     /**
@@ -94,7 +93,7 @@ class AsignaturaController extends Controller
      */
     public function destroy($codAs)
     {
-        $asignatura = Asignatura::find($codAs);
+        $asignatura = $this->asignatura->obtenerAsignaturaPorCod($codAs);
         $asignatura->delete();
         return redirect()->action([AsignaturaController::class, 'index']);
     }

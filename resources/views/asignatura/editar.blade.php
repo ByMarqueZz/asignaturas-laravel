@@ -21,11 +21,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                <form action="/alumnos/editar/{{ $alumno->id}}" method ="POST">
+                <form action="/asignatura/editar/{{ $asignatura->codAS}}" method ="POST">
                     @csrf
                     {{ method_field('PUT') }}
                     <label>Código asignatura:</label>
-                    <input type="text" name="codAs" placeholder="Código asignatura" value="{{ $asignatura->codAs}}">
+                    <input type="text" name="codAs" placeholder="Código asignatura" value="{{ $asignatura->codAS}}">
                     <label>Nombre asignatura:</label>
                     <input type="text" name="nombreAs" placeholder="Nombre asignatura:" value="{{ $asignatura->nombreAs}}">
                     <label>Nombre corto asignatura:</label>
