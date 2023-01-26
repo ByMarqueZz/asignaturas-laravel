@@ -58,8 +58,7 @@
                                         13:45-14:45
                                         @break
                                 @endswitch
-                                <a href="/horas/ver/{{$hora->id}}">Ver</a>
-                                <a href="/horas/eliminar/{{$hora->diaH}}&{{$hora->horaH}}">Borrar</a>
+                                <a href="/horas/delete/{{$hora->codAs}}/{{$hora->diaH}}/{{$hora->horaH}}">Borrar</a>
                             @endif
                         @endforeach
                         <br><br>

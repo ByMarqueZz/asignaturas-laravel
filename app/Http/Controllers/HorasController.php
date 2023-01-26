@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Horas;
 use App\Models\Asignatura;
 
@@ -94,10 +95,9 @@ class HorasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($codAs, $diaH, $horaH)
     {
-        $horas = Horas::find($id);
-        $horas->delete();
+        DB::table('horas')->where('diaH', $diaH)->where('horaH', $horaH)->where('codAs', $codAs)->delete();
         return redirect()->action([HorasController::class, 'index']);
     }
 }

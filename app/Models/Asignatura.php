@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Asignatura extends Model
 {
@@ -22,5 +23,14 @@ class Asignatura extends Model
     public function obtenerAsignaturaPorCod($codAs)
     {
         return Asignatura::find($codAs);
+    }
+    public function obtenerAsignaturaPorHorario($diaH, $horaH)
+    {
+        $codAs = DB::table('horas')
+            ->join('asignaturas', 'horas.codAs', '=', 'asignaturas.codAs')
+            ->where('horas.diaH', $diaH)
+            ->where('horas.horaH', $horaH)
+            ->first();
+        return $codAs;
     }
 }

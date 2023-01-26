@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\HorasController;
+use App\Http\Controllers\InicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +32,9 @@ Route::get('/asignatura/eliminar/{codAs}', [AsignaturaController::class, 'destro
 Route::get('/horas', [HorasController::class, 'index'])->middleware(['auth', 'verified'])->name('horas');
 Route::get('/horas/crear', [HorasController::class, 'create'])->middleware(['auth', 'verified']);
 Route::post('/horas/crear',  [HorasController::class, 'store'])->middleware(['auth', 'verified']);
-Route::get('/horas/eliminar/{diaH}&{horaH}', [HorasController::class, 'destroy'])->middleware(['auth', 'verified']);
+Route::get("/horas/delete/{codAs}/{diaH}/{horaH}", [HorasController::class, 'destroy'])->middleware(['auth', 'verified']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [InicioController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
